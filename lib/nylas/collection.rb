@@ -127,9 +127,7 @@ module Nylas
     end
 
     def find_model(id)
-      instance = model.from_hash({ id: id }, api: api)
-      instance.reload
-      instance
+      model.from_json(find_raw(id), api: api)
     end
 
     # @return [Hash] Specification for request to be passed to {API#execute}
