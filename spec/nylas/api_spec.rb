@@ -21,6 +21,22 @@ describe Nylas::API do
     end
   end
 
+  describe "#hosted_authentication_url" do
+    context "with required parameters" do
+      it "returns url for hosted_authentication" do
+        api = described_class.new(app_id: "2454354")
+
+        hosted_auth_url = api.hosted_authentication_url(
+          redirect_uri: "http://example.com",
+          scopes: ["email"]
+        )
+
+        expected_url = "https://api.nylas.comoauth/authorize?client_id=2454354&redirect_uri=http%3A%2F%2Fexample.com&response_type=code&scopes=email&login_hint"
+        expect(hosted_auth_url).to eq expected_url
+      end
+    end
+  end
+
   describe "#contact_groups" do
     it "returns Nylas::Collection for contact groups" do
       client = instance_double("Nylas::HttpClient")
