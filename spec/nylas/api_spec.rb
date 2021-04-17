@@ -21,12 +21,12 @@ describe Nylas::API do
     end
   end
 
-  describe "#hosted_authentication_url" do
+  describe "#authentication_url" do
     context "with required parameters" do
       it "returns url for hosted_authentication" do
         api = described_class.new(app_id: "2454354")
 
-        hosted_auth_url = api.hosted_authentication_url(
+        hosted_auth_url = api.authentication_url(
           redirect_uri: "http://example.com",
           scopes: ["email"]
         )

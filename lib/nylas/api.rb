@@ -38,7 +38,7 @@ module Nylas
     end
 
     # @return [String] A URL for hosted authentication
-    def hosted_authentication_url(redirect_uri:, scopes:, response_type: "code", login_hint: nil, state: nil)
+    def authentication_url(redirect_uri:, scopes:, response_type: "code", login_hint: nil, state: nil)
       params = {
         client_id: app_id,
         redirect_uri: redirect_uri,
