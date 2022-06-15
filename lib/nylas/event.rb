@@ -35,6 +35,7 @@ module Nylas
     has_n_of_attribute :round_robin_order, :string
     attribute :original_start_time, :unix_timestamp
     attribute :job_status_id, :string, read_only: true
+    attribute :reminder_minutes, :string
 
     attr_accessor :notify_participants
 
